@@ -1,0 +1,26 @@
+{
+    "name": "brotkrueml/coding-standards",
+    "type": "library",
+    "description": "Coding standards for the brotkrueml projects",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Chris Müller",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">= 7.1",
+        "symplify/easy-coding-standard": "^9.4"
+    },
+    "require-dev": {
+        "captainhook/captainhook": "^5.10",
+        "ergebnis/composer-normalize": "^2.15"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-autoload-dump": "vendor/bin/captainhook install -f -s"
+    }
+}
