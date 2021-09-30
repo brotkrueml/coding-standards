@@ -46,6 +46,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(\PhpCsFixer\Fixer\ControlStructure\NoSuperfluousElseifFixer::class);
 
+    $services->set(\PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer::class);
+
     $services->set(\PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer::class);
 
     $services->set(\PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer::class);
