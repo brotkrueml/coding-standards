@@ -1,8 +1,8 @@
 {
     "name": "brotkrueml/coding-standards",
-    "type": "library",
     "description": "Coding standards for the brotkrueml projects",
     "license": "GPL-2.0-or-later",
+    "type": "library",
     "authors": [
         {
             "name": "Chris Müller",
@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "captainhook/captainhook": "^5.10",
-        "ergebnis/composer-normalize": "^2.15"
+        "ergebnis/composer-normalize": "^2.18"
     },
     "config": {
         "sort-packages": true
