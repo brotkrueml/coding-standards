@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">= 7.1",
-        "symplify/easy-coding-standard": "^9.4 || ^10.0.0-beta5"
+        "symplify/easy-coding-standard": "^9.4 || ^10.0"
     },
     "require-dev": {
         "captainhook/captainhook": "^5.10",
