@@ -18,6 +18,9 @@
         "ergebnis/composer-normalize": "^2.18"
     },
     "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
         "sort-packages": true
     },
     "scripts": {
