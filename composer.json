@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "captainhook/captainhook": "^5.10",
-        "ergebnis/composer-normalize": "^2.18"
+        "ergebnis/composer-normalize": "~2.26.0"
     },
     "config": {
         "allow-plugins": {
