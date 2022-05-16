@@ -12,17 +12,17 @@ Install the package via Composer:
 ## Usage
 
 Just import the common rule set and add your additional configuration
-(like paths, skips, etc.):
+(like paths, skip, etc.):
 
 ```php
 <?php
 
 declare (strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(__DIR__ . '/vendor/brotkrueml/coding-standards/config/common.php');
+return static function (ECSConfig $config): void {
+    $config->import(__DIR__ . '/vendor/brotkrueml/coding-standards/config/common.php');
 
     // ... additional configuration ...
 };
