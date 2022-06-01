@@ -14,7 +14,7 @@
         "symplify/easy-coding-standard": "10.2.7"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "~2.26.0"
+        "ergebnis/composer-normalize": "~2.27.0"
     },
     "config": {
         "allow-plugins": {
