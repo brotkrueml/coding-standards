@@ -41,6 +41,21 @@ return static function (ECSConfig $config): void {
             'hash',
         ],
     ]);
+    $config->ruleWithConfiguration(\PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer::class, []);
+    $config->ruleWithConfiguration(\PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer::class, [
+        'after_heredoc' => true,
+        'elements' => [
+            'arguments',
+            'arrays',
+            'match',
+            'parameters',
+        ],
+    ]);
+    $config->ruleWithConfiguration(\PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer::class, [
+        'include' => ['@all'],
+        'scope' => 'namespaced',
+        'strict' => true,
+    ]);
     $config->ruleWithConfiguration(\PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer::class, [
         'null_adjustment' => 'always_last',
         'sort_algorithm' => 'none',
@@ -58,6 +73,8 @@ return static function (ECSConfig $config): void {
     ]);
     $config->ruleWithConfiguration(\PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer::class, [
         'tokens' => [
+            'attribute',
+            'break',
             'case',
             'continue',
             'curly_brace_block',
