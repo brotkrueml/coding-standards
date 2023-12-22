@@ -88,4 +88,15 @@ return static function (ECSConfig $config): void {
             'use_trait',
         ],
     ]);
+
+    // Already implemented PER-CS2 rules we opt-in explicitly
+    // @todo: Can be dropped once @PER-CS2.0 is enabled
+    $config->ruleWithConfiguration(\PhpCsFixer\Fixer\Operator\ConcatSpaceFixer::class, [
+        'spacing' => 'one',
+    ]);
+    $config->ruleWithConfiguration(\PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer::class, [
+        'closure_fn_spacing' => 'none',
+    ]);
+    $config->rule(\PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer::class);
+    $config->rule(\PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer::class);
 };
