@@ -12,7 +12,7 @@ Install the package via Composer:
 ## Usage
 
 Just import the common rule set and add your additional configuration
-(like paths, skip, etc.):
+(like paths, skip, etc.), for example:
 
 ```php
 <?php
@@ -21,9 +21,19 @@ declare (strict_types=1);
 
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
-return static function (ECSConfig $config): void {
-    $config->import(__DIR__ . '/vendor/brotkrueml/coding-standards/config/common.php');
+return ECSConfig::configure()
+    ->withSets([
+        __DIR__ . '/vendor/brotkrueml/coding-standards/config/common.php',
+    ])
+    ->withParallel()
+    ->withPaths([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+        // ...
+    ])
 
     // ... additional configuration ...
+
+    ;
 };
 ```
