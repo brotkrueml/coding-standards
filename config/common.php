@@ -30,6 +30,7 @@ return ECSConfig::configure()
         \PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer::class,
         \PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer::class,
         \PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer::class,
+        \PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer::class,
     ])
     ->withConfiguredRule(
         \PhpCsFixer\Fixer\CastNotation\CastSpacesFixer::class,
