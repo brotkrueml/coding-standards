@@ -4,6 +4,40 @@ declare(strict_types=1);
 
 namespace Brotkrueml\CodingStandards;
 
+use PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer;
+use PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer;
+use PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer;
+use PhpCsFixer\Fixer\CastNotation\CastSpacesFixer;
+use PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer;
+use PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer;
+use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
+use PhpCsFixer\Fixer\ClassNotation\NoNullPropertyInitializationFixer;
+use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
+use PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer;
+use PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer;
+use PhpCsFixer\Fixer\ControlStructure\NoSuperfluousElseifFixer;
+use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
+use PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer;
+use PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer;
+use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
+use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
+use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
+use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
+use PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer;
+use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
+use PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer;
+use PhpCsFixer\Fixer\PhpUnit\PhpUnitMockShortWillReturnFixer;
+use PhpCsFixer\Fixer\PhpUnit\PhpUnitTestAnnotationFixer;
+use PhpCsFixer\Fixer\PhpUnit\PhpUnitTestCaseStaticMethodCallsFixer;
+use PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer;
+use PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer;
+use PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer;
+use PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer;
+use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
@@ -13,35 +47,35 @@ return ECSConfig::configure()
         cleanCode: true,
     )
     ->withRules([
-        \PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer::class,
-        \PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer::class,
-        \PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer::class,
-        \PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer::class,
-        \PhpCsFixer\Fixer\ClassNotation\NoNullPropertyInitializationFixer::class,
-        \PhpCsFixer\Fixer\ControlStructure\NoSuperfluousElseifFixer::class,
-        \PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer::class,
-        \PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer::class,
-        \PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer::class,
-        \PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer::class,
-        \PhpCsFixer\Fixer\Phpdoc\PhpdocTypesFixer::class,
-        \PhpCsFixer\Fixer\PhpUnit\PhpUnitMockShortWillReturnFixer::class,
-        \PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer::class,
-        \PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer::class,
-        \PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer::class,
-        \PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer::class,
-        \PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer::class,
-        \PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer::class,
-        \PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer::class,
-        \PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer::class,
+        ArrayIndentationFixer::class,
+        DirConstantFixer::class,
+        MethodArgumentSpaceFixer::class,
+        ModernizeTypesCastingFixer::class,
+        NativeFunctionCasingFixer::class,
+        NoAliasFunctionsFixer::class,
+        NoEmptyStatementFixer::class,
+        NoNullPropertyInitializationFixer::class,
+        NoShortBoolCastFixer::class,
+        NoSuperfluousElseifFixer::class,
+        NullableTypeDeclarationFixer::class,
+        NullableTypeDeclarationForDefaultNullValueFixer::class,
+        PhpdocScalarFixer::class,
+        PhpdocTrimFixer::class,
+        PhpdocTypesFixer::class,
+        PhpUnitMockShortWillReturnFixer::class,
+        SimpleToComplexStringVariableFixer::class,
+        SingleLineEmptyBodyFixer::class,
+        StaticLambdaFixer::class,
+        StringImplicitBackslashesFixer::class,
     ])
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\CastNotation\CastSpacesFixer::class,
+        CastSpacesFixer::class,
         [
             'space' => 'none',
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer::class,
+        ClassAttributesSeparationFixer::class,
         [
             'elements' => [
                 'method' => 'one',
@@ -49,32 +83,23 @@ return ECSConfig::configure()
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer::class,
+        ConcatSpaceFixer::class,
         [
-            'comment_types' => [
-                'asterisk',
-                'hash',
-            ],
+            'spacing' => 'one',
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer::class,
+        FunctionDeclarationFixer::class,
+        [
+            'closure_fn_spacing' => 'none',
+        ],
+    )
+    ->withConfiguredRule(
+        NativeConstantInvocationFixer::class,
         [],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer::class,
-        [
-            'after_heredoc' => true,
-            'elements' => [
-                'arguments',
-                'arrays',
-                'match',
-                'parameters',
-            ],
-        ],
-    )
-    ->withConfiguredRule(
-        \PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer::class,
+        NativeFunctionInvocationFixer::class,
         [
             'include' => [
                 '@all',
@@ -84,34 +109,13 @@ return ECSConfig::configure()
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer::class,
+        NewWithParenthesesFixer::class,
         [
-            'null_adjustment' => 'always_last',
-            'sort_algorithm' => 'none',
+            'anonymous_class' => false,
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\PhpUnit\PhpUnitTestAnnotationFixer::class,
-        [
-            'style' => 'annotation',
-        ],
-    )
-    ->withConfiguredRule(
-        \PhpCsFixer\Fixer\PhpUnit\PhpUnitTestCaseStaticMethodCallsFixer::class,
-        [
-            'call_type' => 'self',
-        ],
-    )
-    ->withConfiguredRule(
-        \PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer::class,
-        [
-            'order' => [
-                'use_trait',
-            ],
-        ],
-    )
-    ->withConfiguredRule(
-        \PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer::class,
+        NoExtraBlankLinesFixer::class,
         [
             'tokens' => [
                 'attribute',
@@ -131,20 +135,50 @@ return ECSConfig::configure()
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\Operator\ConcatSpaceFixer::class,
+        OrderedClassElementsFixer::class,
         [
-            'spacing' => 'one',
+            'order' => [
+                'use_trait',
+            ],
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer::class,
+        PhpdocTypesOrderFixer::class,
         [
-            'closure_fn_spacing' => 'none',
+            'null_adjustment' => 'always_last',
+            'sort_algorithm' => 'none',
         ],
     )
     ->withConfiguredRule(
-        \PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer::class,
+        PhpUnitTestAnnotationFixer::class,
         [
-            'anonymous_class' => false,
+            'style' => 'annotation',
+        ],
+    )
+    ->withConfiguredRule(
+        PhpUnitTestCaseStaticMethodCallsFixer::class,
+        [
+            'call_type' => 'self',
+        ],
+    )
+    ->withConfiguredRule(
+        SingleLineCommentStyleFixer::class,
+        [
+            'comment_types' => [
+                'asterisk',
+                'hash',
+            ],
+        ],
+    )
+    ->withConfiguredRule(
+        TrailingCommaInMultilineFixer::class,
+        [
+            'after_heredoc' => true,
+            'elements' => [
+                'arguments',
+                'arrays',
+                'match',
+                'parameters',
+            ],
         ],
     );
