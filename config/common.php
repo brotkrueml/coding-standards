@@ -29,6 +29,7 @@ return ECSConfig::configure()
         \PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer::class,
         \PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer::class,
         \PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer::class,
+        \PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer::class,
     ])
     ->withConfiguredRule(
         \PhpCsFixer\Fixer\CastNotation\CastSpacesFixer::class,
