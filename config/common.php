@@ -136,4 +136,10 @@ return ECSConfig::configure()
         [
             'closure_fn_spacing' => 'none',
         ],
+    )
+    ->withConfiguredRule(
+        \PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer::class,
+        [
+            'anonymous_class' => false,
+        ]
     );
