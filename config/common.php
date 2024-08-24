@@ -47,9 +47,14 @@ return ECSConfig::configure()
         cleanCode: true,
     )
     ->withRules([
+        // PER-CS 2.0
         ArrayIndentationFixer::class,
-        DirConstantFixer::class,
+        CastSpacesFixer::class,
         MethodArgumentSpaceFixer::class,
+        SingleLineEmptyBodyFixer::class,
+
+        // Other
+        DirConstantFixer::class,
         ModernizeTypesCastingFixer::class,
         NativeFunctionCasingFixer::class,
         NoAliasFunctionsFixer::class,
@@ -64,24 +69,10 @@ return ECSConfig::configure()
         PhpdocTypesFixer::class,
         PhpUnitMockShortWillReturnFixer::class,
         SimpleToComplexStringVariableFixer::class,
-        SingleLineEmptyBodyFixer::class,
         StaticLambdaFixer::class,
         StringImplicitBackslashesFixer::class,
     ])
-    ->withConfiguredRule(
-        CastSpacesFixer::class,
-        [
-            'space' => 'none',
-        ],
-    )
-    ->withConfiguredRule(
-        ClassAttributesSeparationFixer::class,
-        [
-            'elements' => [
-                'method' => 'one',
-            ],
-        ],
-    )
+    // PER-CS 2.0
     ->withConfiguredRule(
         ConcatSpaceFixer::class,
         [
@@ -92,6 +83,21 @@ return ECSConfig::configure()
         FunctionDeclarationFixer::class,
         [
             'closure_fn_spacing' => 'none',
+        ],
+    )
+    ->withConfiguredRule(
+        NewWithParenthesesFixer::class,
+        [
+            'anonymous_class' => false,
+        ],
+    )
+
+    ->withConfiguredRule(
+        ClassAttributesSeparationFixer::class,
+        [
+            'elements' => [
+                'method' => 'one',
+            ],
         ],
     )
     ->withConfiguredRule(
@@ -109,11 +115,19 @@ return ECSConfig::configure()
         ],
     )
     ->withConfiguredRule(
-        NewWithParenthesesFixer::class,
+        TrailingCommaInMultilineFixer::class,
         [
-            'anonymous_class' => false,
+            'after_heredoc' => true,
+            'elements' => [
+                'arguments',
+                'arrays',
+                'match',
+                'parameters',
+            ],
         ],
     )
+
+    // Other
     ->withConfiguredRule(
         NoExtraBlankLinesFixer::class,
         [
@@ -170,15 +184,4 @@ return ECSConfig::configure()
             ],
         ],
     )
-    ->withConfiguredRule(
-        TrailingCommaInMultilineFixer::class,
-        [
-            'after_heredoc' => true,
-            'elements' => [
-                'arguments',
-                'arrays',
-                'match',
-                'parameters',
-            ],
-        ],
-    );
+;
