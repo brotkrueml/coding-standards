@@ -28,6 +28,7 @@ return ECSConfig::configure()
         \PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer::class,
         \PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer::class,
         \PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer::class,
+        \PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer::class,
     ])
     ->withConfiguredRule(
         \PhpCsFixer\Fixer\CastNotation\CastSpacesFixer::class,
@@ -141,5 +142,5 @@ return ECSConfig::configure()
         \PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer::class,
         [
             'anonymous_class' => false,
-        ]
+        ],
     );
