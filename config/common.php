@@ -31,6 +31,7 @@ return ECSConfig::configure()
         \PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer::class,
         \PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer::class,
         \PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer::class,
+        \PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer::class,
         \PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer::class,
     ])
     ->withConfiguredRule(
