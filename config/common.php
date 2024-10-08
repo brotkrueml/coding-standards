@@ -120,6 +120,7 @@ return ECSConfig::configure()
             'after_heredoc' => true,
             'elements' => [
                 'arguments',
+                'array_destructuring',
                 'arrays',
                 'match',
                 'parameters',
