@@ -13,6 +13,8 @@ use PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\NoNullPropertyInitializationFixer;
 use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
+use PhpCsFixer\Fixer\ClassNotation\OrderedTypesFixer;
+use PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer;
 use PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoSuperfluousElseifFixer;
@@ -26,6 +28,7 @@ use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer;
 use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer;
+use PhpCsFixer\Fixer\Operator\OperatorLinebreakFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
@@ -39,6 +42,7 @@ use PhpCsFixer\Fixer\StringNotation\SimpleToComplexStringVariableFixer;
 use PhpCsFixer\Fixer\StringNotation\StringImplicitBackslashesFixer;
 use PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer;
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
+use PhpCsFixer\Fixer\Whitespace\TypesSpacesFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
@@ -54,6 +58,12 @@ return ECSConfig::configure()
         MethodArgumentSpaceFixer::class,
         SingleLineEmptyBodyFixer::class,
 
+        // PER-CS 3.0
+        NullableTypeDeclarationFixer::class,
+        OperatorLinebreakFixer::class,
+        SingleClassElementPerStatementFixer::class,
+        TypesSpacesFixer::class,
+
         // Other
         DirConstantFixer::class,
         ModernizeTypesCastingFixer::class,
@@ -63,7 +73,6 @@ return ECSConfig::configure()
         NoNullPropertyInitializationFixer::class,
         NoShortBoolCastFixer::class,
         NoSuperfluousElseifFixer::class,
-        NullableTypeDeclarationFixer::class,
         NullableTypeDeclarationForDefaultNullValueFixer::class,
         PhpdocScalarFixer::class,
         PhpdocTrimFixer::class,
@@ -127,6 +136,15 @@ return ECSConfig::configure()
                 'parameters',
             ],
         ],
+    )
+
+    // PER-CS 3.0
+    ->withConfiguredRule(
+        OrderedTypesFixer::class,
+        [
+            'null_adjustment' => 'always_last',
+            'sort_algorithm' => 'none',
+        ]
     )
 
     // Other
