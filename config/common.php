@@ -26,6 +26,7 @@ use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer;
 use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer;
+use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesFixer;
@@ -147,6 +148,13 @@ return ECSConfig::configure()
                 'use',
                 'use_trait',
             ],
+        ],
+    )
+    ->withConfiguredRule(
+        NoSuperfluousPhpdocTagsFixer::class,
+        [
+            'allow_hidden_params' => true,
+            'remove_inheritdoc' => true,
         ],
     )
     ->withConfiguredRule(
