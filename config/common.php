@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Brotkrueml\CodingStandards;
 
 use PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer;
+use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
 use PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer;
 use PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer;
 use PhpCsFixer\Fixer\CastNotation\CastSpacesFixer;
@@ -26,6 +27,7 @@ use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValue
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer;
+use PhpCsFixer\Fixer\LanguageConstruct\SingleSpaceAroundConstructFixer;
 use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer;
 use PhpCsFixer\Fixer\Operator\OperatorLinebreakFixer;
@@ -54,6 +56,7 @@ return ECSConfig::configure()
     ->withRules([
         // PER-CS 2.0
         ArrayIndentationFixer::class,
+        ArraySyntaxFixer::class,
         CastSpacesFixer::class,
         MethodArgumentSpaceFixer::class,
         SingleLineEmptyBodyFixer::class,
@@ -82,6 +85,7 @@ return ECSConfig::configure()
         StaticLambdaFixer::class,
         StringImplicitBackslashesFixer::class,
     ])
+
     // PER-CS 2.0
     ->withConfiguredRule(
         ConcatSpaceFixer::class,
@@ -96,18 +100,15 @@ return ECSConfig::configure()
         ],
     )
     ->withConfiguredRule(
+        MethodArgumentSpaceFixer::class,
+        [
+            'after_heredoc' => false,
+        ],
+    )
+    ->withConfiguredRule(
         NewWithParenthesesFixer::class,
         [
             'anonymous_class' => false,
-        ],
-    )
-
-    ->withConfiguredRule(
-        ClassAttributesSeparationFixer::class,
-        [
-            'elements' => [
-                'method' => 'one',
-            ],
         ],
     )
     ->withConfiguredRule(
@@ -122,6 +123,55 @@ return ECSConfig::configure()
             ],
             'scope' => 'namespaced',
             'strict' => true,
+        ],
+    )
+    ->withConfiguredRule(
+        SingleSpaceAroundConstructFixer::class,
+        [
+            'constructs_followed_by_a_single_space' => [
+                'abstract',
+                'as',
+                'case',
+                'catch',
+                'class',
+                'const',
+                'const_import',
+                'do',
+                'else',
+                'elseif',
+                'enum',
+                'final',
+                'finally',
+                'for',
+                'foreach',
+                'function',
+                'function_import',
+                'if',
+                'insteadof',
+                'interface',
+                'match',
+                'named_argument',
+                'namespace',
+                'new',
+                'private',
+                'protected',
+                'public',
+                'readonly',
+                'static',
+                'switch',
+                'trait',
+                'try',
+                'type_colon',
+                'use',
+                'use_lambda',
+                'while',
+            ],
+            'constructs_preceded_by_a_single_space' => [
+                'as',
+                'else',
+                'elseif',
+                'use_lambda',
+            ],
         ],
     )
     ->withConfiguredRule(
@@ -144,10 +194,18 @@ return ECSConfig::configure()
         [
             'null_adjustment' => 'always_last',
             'sort_algorithm' => 'none',
-        ]
+        ],
     )
 
     // Other
+    ->withConfiguredRule(
+        ClassAttributesSeparationFixer::class,
+        [
+            'elements' => [
+                'method' => 'one',
+            ],
+        ],
+    )
     ->withConfiguredRule(
         NoExtraBlankLinesFixer::class,
         [
