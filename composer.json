@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">= 8.1",
-        "symplify/easy-coding-standard": "^13.0"
+        "symplify/easy-coding-standard": "^13.0.4"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.48.2"

@@ -25,6 +25,7 @@ use PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\NullableTypeDeclarationFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\SingleSpaceAroundConstructFixer;
@@ -123,6 +124,17 @@ return ECSConfig::configure()
             ],
             'scope' => 'namespaced',
             'strict' => true,
+        ],
+    )
+    ->withConfiguredRule(
+        OrderedImportsFixer::class,
+        [
+            'imports_order' => [
+                'class',
+                'function',
+                'const',
+            ],
+            'sort_algorithm' => 'none',
         ],
     )
     ->withConfiguredRule(
